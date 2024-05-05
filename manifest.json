@@ -1,0 +1,11 @@
+{
+  "manifest_version":3,
+  "name":"CopyStyle",
+  "version":"1.0.0",
+  "description":"复制Div的样式",
+  "icons": {
+    "16":"assets/logo.png",
+    "48":"assets/logo.png",
+    "128":"assets/logo.png"
+  }
+}
