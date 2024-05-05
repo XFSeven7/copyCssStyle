@@ -7,5 +7,9 @@
     "16":"assets/logo.png",
     "48":"assets/logo.png",
     "128":"assets/logo.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/logo.png"
   }
 }
