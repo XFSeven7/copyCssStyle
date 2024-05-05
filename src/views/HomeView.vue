@@ -1,11 +1,8 @@
 <template>
   <div class="home">
-    <div>
-      <label>
-        Switch:
-        <input type="checkbox" v-model="isChecked">
-      </label>
-      <p>Switch is {{ isChecked ? 'On' : 'Off' }}</p>
+    <div style="width: 100px;display: flex;align-items: center">
+      <div>功能开关:</div>
+      <input type="checkbox" v-model="isChecked">
     </div>
 
   </div>
