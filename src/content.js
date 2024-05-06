@@ -17,8 +17,6 @@ document.addEventListener("mousemove", function (event) {
 
     const targetElement = event.target;
 
-    console.log("定位DIV");
-
     currtarget = targetElement;
 
     const rect = targetElement.getBoundingClientRect();
@@ -43,19 +41,17 @@ document.addEventListener("mouseout", function () {
 // 监听来自后台页面的消息
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
-    console.log("复制DIV");
-
     // 获取元素的计算后的样式
     const computedStyles = window.getComputedStyle(currtarget);
     const computedStylesinline = window.getComputedStyle(inlineDiv);
 
-    let a = ".class_style{\n";
+    let result = ".copy_style{\n";
 
     // 遍历计算后的样式对象，输出手动修改的样式属性
     for (let i = 0; i < computedStyles.length; i++) {
 
         const property = computedStyles[i];
-        console.log(property);
+        // console.log(property);
 
         const computedValue = computedStyles.getPropertyValue(property);
         const inlineValue = computedStylesinline.getPropertyValue(property);
@@ -71,14 +67,16 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             if (property.includes("-webkit")) {
                 continue;
             }
-            a += "\t" + property + ': ' + computedValue + ";\n";
+            result += "\t" + property + ': ' + computedValue + ";\n";
         }
 
     }
 
-    a += "}";
+    result += "}";
 
-    copyToClipboard(a);
+    console.log(result)
+
+    copyToClipboard(result);
 
     alert("复制成功");
 
