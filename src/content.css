@@ -1,0 +1,10 @@
+#overlay {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(163, 198, 232, 0.5); /* 半透明红色 */
+    border: rgba(88, 161, 232, 0.5);
+    pointer-events: none; /* 禁用遮罩层上的鼠标事件，确保不会影响到页面上的其他元素 */
+    display: none; /* 默认隐藏 */
+    z-index: 9999; /* 确保遮罩层在页面上最顶层 */
+}

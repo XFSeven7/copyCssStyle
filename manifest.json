@@ -1,15 +1,26 @@
 {
-  "manifest_version":3,
-  "name":"CopyStyle",
-  "version":"1.0.0",
-  "description":"复制Div的样式",
-  "icons": {
-    "16":"assets/logo.png",
-    "48":"assets/logo.png",
-    "128":"assets/logo.png"
-  },
+  "manifest_version": 3,
+  "name": "copyStyle",
+  "version": "1.0",
+  "description": "一键复制div的样式",
+  "permissions": ["tabs", "storage","contextMenus"],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "assets/logo.png"
-  }
+    "default_icon": {
+      "48": "src/assets/logo.png"
+    }
+  },
+  "icons": {
+    "48": "src/assets/logo.png"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"],
+      "css": ["src/content.css"]
+    }
+  ]
 }
