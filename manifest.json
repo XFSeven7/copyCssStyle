@@ -1,11 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "copyStyle",
+  "name": "copyCssStyle",
   "version": "1.0",
-  "description": "一键复制div的样式",
-  "permissions": ["tabs", "storage","contextMenus"],
+  "description": "一键复制css样式",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "activeTab"
+  ],
+  "homepage_url": "https://github.com/XFSeven7/copyStyle",
   "action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "48": "src/assets/logo.png"
     }
@@ -18,9 +22,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["src/jquery.js","src/content.js"],
-      "css": ["src/content.css"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content.js"
+      ]
     }
   ]
 }
