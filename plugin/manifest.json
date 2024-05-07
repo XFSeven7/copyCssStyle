@@ -8,7 +8,7 @@
     "contextMenus",
     "activeTab"
   ],
-  "homepage_url": "https://github.com/XFSeven7/copyStyle",
+  "homepage_url": "https://github.com/XFSeven7/copyCssStyle",
   "action": {
     "default_icon": {
       "48": "src/assets/logo.png"

@@ -14,7 +14,7 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
 chrome.runtime.onInstalled.addListener(function (details) {
     if (details.reason === "install" || details.reason === "update") {
         chrome.contextMenus.create({id: "copyCssStyle", title: "copy css style", contexts: ["all"]});
-        chrome.tabs.create({url: "https://github.com/XFSeven7/copyStyle"});
+        chrome.tabs.create({url: "https://github.com/XFSeven7/copyCssStyle"});
     }
 });
 
