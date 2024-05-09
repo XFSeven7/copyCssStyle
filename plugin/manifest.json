@@ -4,7 +4,6 @@
   "version": "1.0",
   "description": "一键复制css样式",
   "permissions": [
-    "tabs",
     "contextMenus",
     "activeTab"
   ],
