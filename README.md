@@ -11,6 +11,7 @@ copyCssStyle是一款方便快捷的 Chrome 插件，旨在帮助开发者快速
 ## 如何使用：
 
 - 安装插件：把plugin文件夹拖到chrome浏览器的拓展程序中。
+    或者可以在chrome拓展商城直接安装 [copyCssStyle](https://chromewebstore.google.com/detail/copycssstyle/nneolbanmfgdfglpgebdokdflebpdhdi)
 - 在网页中选择目标元素：点击插件图标，鼠标移动到目标 DOM 元素，红色虚线会包裹当前选中的DOM元素。
 - 复制样式：点击鼠标右键，点击copy css style即可将样式属性复制到剪贴板。
 - 粘贴样式：将复制的样式属性粘贴到目标代码中，以应用所选样式。
