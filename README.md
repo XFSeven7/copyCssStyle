@@ -1,29 +1,32 @@
+[中文🇨🇳](./README_zh.md "")
 
-copyCssStyle是一款方便快捷的 Chrome 插件，旨在帮助开发者快速复制 DOM 元素的常见样式，以加快开发和设计流程。
+## CopyCssStyle: A Convenient Chrome Extension for Developers
 
-![示例](./img/desc_2.gif "")
+**CopyCssStyle** is a handy Chrome extension designed to help developers quickly copy common styles of DOM elements, speeding up the development and design process.
 
-## 主要功能：
+![Example](./img/desc_2.gif "")
 
-- 快速复制样式： 通过简单的点击操作，可以快速复制所选 DOM 元素的常见样式，包括颜色、阴影、边框等。
-- 简洁易用： 界面简洁清晰，操作简单易懂，无需繁琐的设置即可快速复制样式。
+## Key Features:
 
-## 如何使用：
+- **Quick Style Copying**: With a simple click, you can quickly copy the common styles of the selected DOM element, including color, shadow, border, and more.
+- **Simple and Easy to Use**: The interface is clean and clear, and the operations are easy to understand. No complex settings are required to quickly copy styles.
 
-- 安装插件：把plugin文件夹拖到chrome浏览器的拓展程序中。
-    或者可以在chrome拓展商城直接安装 [copyCssStyle](https://chromewebstore.google.com/detail/copycssstyle/nneolbanmfgdfglpgebdokdflebpdhdi)
-- 在网页中选择目标元素：点击插件图标，鼠标移动到目标 DOM 元素，红色虚线会包裹当前选中的DOM元素。
-- 复制样式：点击鼠标右键，点击copy css style即可将样式属性复制到剪贴板。
-- 粘贴样式：将复制的样式属性粘贴到目标代码中，以应用所选样式。
-- 关闭插件：再次点击插件图片即可关闭该功能
+## How to Use:
 
-![示例](./img/desc_1.png "")
+- **Install the Extension**: Drag the plugin folder into the Chrome browser's extension page.  
+  Alternatively, you can install it directly from the Chrome Web Store [CopyCssStyle](https://chromewebstore.google.com/detail/copycssstyle/nneolbanmfgdfglpgebdokdflebpdhdi).
+- **Select the Target Element on the Webpage**: Click the extension icon, move the mouse to the target DOM element, and a red dashed outline will appear around the currently selected DOM element.
+- **Copy the Style**: Right-click and select "copy css style" to copy the style properties to the clipboard.
+- **Paste the Style**: Paste the copied style properties into the target code to apply the selected styles.
+- **Close the Extension**: Click the extension icon again to disable the feature.
 
-## 注意事项：
+![Example](./img/desc_1_en.png "")
 
-1. 插件仅支持复制 DOM 元素的常见样式属性，部分特殊样式可能无法复制。
-2. 在某些网站中可能存在限制或兼容性问题。
-3. 如果点击插件图标后，鼠标出现在DOM元素上但是没有反应，可以刷新页面，重新点击插件图片尝试。
+## Notes:
 
-## 反馈和支持：
-如有任何问题或建议， [issues](https://github.com/XFSeven7/copyCssStyle/issues) 等你
+1. The extension only supports copying common style properties of DOM elements. Some special styles may not be copied.
+2. There may be limitations or compatibility issues on certain websites.
+3. If clicking the extension icon doesn't respond when hovering over DOM elements, try refreshing the page and clicking the extension icon again.
+
+## Feedback and Support:
+For any questions or suggestions, feel free to report issues on [GitHub](https://github.com/XFSeven7/copyCssStyle/issues).
