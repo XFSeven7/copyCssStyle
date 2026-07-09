@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>cssDiff self-check</title>
+</head>
+<body>
+  <pre id="out">running…</pre>
+  <script src="../src/cssDiff.js"></script>
+  <script>
+    (function () {
+      var lines = [];
+      function assert(cond, msg) {
+        if (!cond) throw new Error(msg);
+        lines.push('OK: ' + msg);
+      }
+
+      try {
+        var el = document.createElement('div');
+        el.style.color = 'rgb(255, 0, 0)';
+        el.style.borderRadius = '8px';
+        el.style.width = '120px';
+        el.style.height = '40px';
+        document.body.appendChild(el);
+
+        var css = buildCopyStyleCss(el);
+        assert(css !== null, 'buildCopyStyleCss returns string');
+        assert(css.indexOf('.copy_style{') === 0, 'starts with .copy_style{');
+        assert(/color:\s*rgb\(255,\s*0,\s*0\)/.test(css), 'includes custom color');
+        assert(css.indexOf('border-radius:') !== -1, 'includes border-radius');
+        assert(css.indexOf('width:') !== -1, 'includes width');
+        assert(css.indexOf('height:') !== -1, 'includes height');
+        assert(css.indexOf('display:') === -1, 'no display (not in whitelist)');
+        assert(css.indexOf('position:') === -1, 'no position');
+        assert(css.indexOf('flex-direction:') === -1, 'no flex-direction');
+
+        var bare = document.createElement('div');
+        document.body.appendChild(bare);
+        var bareCss = buildCopyStyleCss(bare);
+        assert(bareCss !== null, 'bare div returns string');
+        // 空白 div 相对探针应极少或无差异（允许空规则块）
+        var body = bareCss.replace(/^\.copy_style\{\n?/, '').replace(/\n?\}$/, '').trim();
+        assert(body.length < 80, 'bare div output stays short: ' + JSON.stringify(body));
+
+        // 探针不得残留
+        assert(!document.querySelector('[data-copy-css-probe]'), 'probe cleaned up');
+
+        document.body.removeChild(el);
+        document.body.removeChild(bare);
+        lines.push('ALL PASSED');
+      } catch (e) {
+        lines.push('FAIL: ' + e.message);
+      }
+      document.getElementById('out').textContent = lines.join('\n');
+    })();
+  </script>
+</body>
+</html>
