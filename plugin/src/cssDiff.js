@@ -7,19 +7,57 @@ var PROPERTY_ARR = [
 ];
 
 function createProbe(tagName) {
-  throw new Error('not implemented');
+  var probe = document.createElement(tagName);
+  probe.setAttribute('data-copy-css-probe', '1');
+  // 探针不加任何作者样式，避免污染 width/height
+  var parent = document.body || document.documentElement;
+  if (!parent) {
+    return null;
+  }
+  parent.appendChild(probe);
+  return probe;
 }
 
 function removeProbe(probe) {
-  throw new Error('not implemented');
+  if (probe && probe.parentNode) {
+    probe.parentNode.removeChild(probe);
+  }
 }
 
 /**
  * @param {Element} target
- * @returns {string|null} `.copy_style{...}` 或挂载失败时 null
+ * @returns {string|null}
  */
 function buildCopyStyleCss(target) {
-  throw new Error('not implemented');
+  if (!target || !target.tagName) {
+    return null;
+  }
+
+  var probe = null;
+  try {
+    probe = createProbe(target.tagName);
+    if (!probe) {
+      return null;
+    }
+
+    var targetStyle = window.getComputedStyle(target);
+    var probeStyle = window.getComputedStyle(probe);
+    var out = '.copy_style{\n';
+
+    for (var i = 0; i < PROPERTY_ARR.length; i++) {
+      var prop = PROPERTY_ARR[i];
+      var tv = targetStyle.getPropertyValue(prop);
+      var pv = probeStyle.getPropertyValue(prop);
+      if (tv !== pv) {
+        out += '\t' + prop + ': ' + tv + ';\n';
+      }
+    }
+
+    out += '}';
+    return out;
+  } finally {
+    removeProbe(probe);
+  }
 }
 
 if (typeof window !== 'undefined') {
