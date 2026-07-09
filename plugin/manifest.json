@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "copyCssStyle",
-  "version": "1.1",
+  "version": "1.2",
   "description": "一键复制css样式",
   "permissions": [
     "contextMenus",
@@ -25,6 +25,7 @@
         "<all_urls>"
       ],
       "js": [
+        "src/cssDiff.js",
         "src/content.js"
       ]
     }
