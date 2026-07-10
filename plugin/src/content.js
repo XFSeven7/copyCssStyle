@@ -5,6 +5,37 @@ var currTarget;
 var isClickRight = false;
 var enable = false;
 
+function clearOutline() {
+  try {
+    if (currTarget) {
+      currTarget.style.outline = '';
+    }
+  } catch (e) {
+  }
+}
+
+function applyEnable(next) {
+  enable = !!next;
+  if (enable) {
+    isClickRight = false;
+  } else {
+    clearOutline();
+  }
+}
+
+// 注入后同步全局开关（已开启时，新开页/刷新页也直接可用）
+try {
+  chrome.runtime.sendMessage({code: 3}, function (response) {
+    if (chrome.runtime.lastError) {
+      return;
+    }
+    if (response && typeof response.enable === 'boolean') {
+      applyEnable(response.enable);
+    }
+  });
+} catch (e) {
+}
+
 document.addEventListener('mouseover', function (event) {
   if (!enable) {
     return;
@@ -27,10 +58,7 @@ document.addEventListener('contextmenu', function () {
 });
 
 document.addEventListener('mouseout', function () {
-  try {
-    currTarget.style.outline = '';
-  } catch (e) {
-  }
+  clearOutline();
 });
 
 chrome.runtime.onMessage.addListener(function (request) {
@@ -40,10 +68,7 @@ chrome.runtime.onMessage.addListener(function (request) {
     }
     isClickRight = false;
   } else if (request.code === 2) {
-    enable = !enable;
-    if (enable) {
-      isClickRight = false;
-    }
+    applyEnable(request.enable);
   }
 });
 

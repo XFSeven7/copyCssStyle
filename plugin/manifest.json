@@ -5,17 +5,23 @@
   "description": "一键复制css样式",
   "permissions": [
     "contextMenus",
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "homepage_url": "https://github.com/XFSeven7/copyCssStyle",
   "action": {
     "default_icon": {
-      "48": "src/assets/logo.png"
+      "16": "src/assets/icons/logo-gray-16.png",
+      "32": "src/assets/icons/logo-gray-32.png",
+      "48": "src/assets/icons/logo-gray-48.png"
     }
   },
   "icons": {
-    "48": "src/assets/logo.png"
+    "16": "src/assets/icons/logo-16.png",
+    "32": "src/assets/icons/logo-32.png",
+    "48": "src/assets/icons/logo-48.png"
   },
+
   "background": {
     "service_worker": "src/background.js"
   },
